@@ -1,5 +1,6 @@
 
 *.bat
 *.exe
+*.pak
 pakchunk0-WindowsNoEditor/
 FModel/
