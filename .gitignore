@@ -1,7 +1,6 @@
-
+pakchunk0-WindowsNoEditor/
+pakchunk0-WinGDK/
 *.bat
 *.exe
 *.pak
-pakchunk0-WindowsNoEditor/
-pakchunk0-WinGDK/
-FModel/
+*.lnk
