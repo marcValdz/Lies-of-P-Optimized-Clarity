@@ -32,7 +32,6 @@ This setting scales the view distance (LOD) of the game. Sadly, even the default
             <td>After</td>
             <td colspan=4>0.1</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.HLOD.DistanceScale</td>
             <td>Before</td>
@@ -49,7 +48,6 @@ This setting scales the view distance (LOD) of the game. Sadly, even the default
             <td>2.0</td>
             <td>8.0</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.ViewDistanceScale</td>
             <td>Before</td>
@@ -66,7 +64,6 @@ This setting scales the view distance (LOD) of the game. Sadly, even the default
             <td>2.0</td>
             <td>4.0</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.SkeletalMeshLODBias</td>
             <td>Before</td>
@@ -112,7 +109,6 @@ Originally, no matter what setting this is set to, TAA is used. Now this setting
             <td>After</td>
             <td colspan=4>0, 2, 4, 6</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.Tonemapper.Sharpen</td>
             <td>Before</td>
@@ -164,7 +160,6 @@ Now this setting acts like an accessibility option, allowing users to disable po
             <td>3</td>
             <td>4</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.DepthOfFieldQuality</td>
             <td>Before</td>
@@ -181,7 +176,6 @@ Now this setting acts like an accessibility option, allowing users to disable po
             <td>3</td>
             <td>4</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.BloomQuality</td>
             <td>Before</td>
@@ -233,7 +227,6 @@ I debated if I should’ve given the option to completely disable shadows, but I
             <td>4</td>
             <td>5</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.Shadow.CSM.MaxCascades</td>
             <td>Before</td>
@@ -247,7 +240,6 @@ I debated if I should’ve given the option to completely disable shadows, but I
             <td>After</td>
             <td colspan=4>2</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.Shadow.MaxCSMResolution</td>
             <td>Before</td>
@@ -264,7 +256,6 @@ I debated if I should’ve given the option to completely disable shadows, but I
             <td>4096</td>
             <td>8192</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.Shadow.RadiusThreshold</td>
             <td>Before</td>
@@ -278,7 +269,6 @@ I debated if I should’ve given the option to completely disable shadows, but I
             <td>After</td>
             <td colspan=4>0.01</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.Shadow.DistanceScale</td>
             <td>Before</td>
@@ -295,7 +285,6 @@ I debated if I should’ve given the option to completely disable shadows, but I
             <td>1.0</td>
             <td>2.0</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.LightMaxDrawDistanceScale</td>
             <td>Before</td>
@@ -309,7 +298,6 @@ I debated if I should’ve given the option to completely disable shadows, but I
             <td>After</td>
             <td colspan=4>2</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.ContactShadows</td>
             <td>Before</td>
@@ -363,7 +351,6 @@ Another setting where I debated on, specifically in the implementation of Screen
             <td>4</td>
             <td>4</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.SSGI.HalfRes</td>
             <td>Before</td>
@@ -419,7 +406,6 @@ SSR is the most interesting setting here since the developers likely optimized t
             <td>4</td>
             <td>4</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.SSR.HalfResSceneColor</td>
             <td>Before</td>
@@ -472,7 +458,6 @@ IMO, the default volumetric fog looks very pixelated, though admittedly, it is f
             <td>1</td>
             <td>1</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.VolumetricFog.GridPixelSize</td>
             <td>Before</td>
@@ -489,7 +474,6 @@ IMO, the default volumetric fog looks very pixelated, though admittedly, it is f
             <td>6</td>
             <td>4</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.VolumetricFog.GridSizeZ</td>
             <td>Before</td>
@@ -541,7 +525,6 @@ AO is now unclamped from the post-processing setting value.
             <td>66</td>
             <td>100</td>
         </tr>
-        
         <tr>
             <td rowspan=2>r.AmbientOcclusionLevels</td>
             <td>Before</td>
