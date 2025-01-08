@@ -107,7 +107,10 @@ Originally, no matter what setting this is set to, TAA is used. Now this setting
         </tr>
         <tr>
             <td>After</td>
-            <td colspan=4>0, 2, 4, 6</td>
+            <td>0</td>
+            <td>2</td>
+            <td>4</td>
+            <td>6</td>
         </tr>
         <tr>
             <td rowspan=2>r.Tonemapper.Sharpen</td>
@@ -815,91 +818,13 @@ These settings have a higher priority than scalable settings. Most of these sett
 # Raytracing!
 Currently, the mod allows the usage of raytracing, but ONLY FOR STEAM. For some reason or another, the Gamepass build doesn't respect these settings. I provided my GameUserSettings.ini file within [EnableRT.zip](https://www.nexusmods.com/liesofp/mods/128?tab=files) with the following RT effects toggled on:
 
-<table>
-    <thead>
-        <tr>
-            <th>Setting</th>
-            <th>Default</th>
-            <th>Modified</th>
-            <th>Effect</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>r.Reflections.Denoiser</td>
-            <td>2</td>
-            <td>0</td>
-            <td>When enabled, it reduces the quality of deferred RT reflections and doesn’t resolve motion graininess.</td>
-        </tr>
-        <tr>
-            <td>r.Reflections.Denoiser.ReconstructionSamples</td>
-            <td>8</td>
-            <td>0</td>
-            <td>Setting this to 0 likely disables the denoising step altogether.</td>
-        </tr>
-        <tr>
-            <td>r.RayTracing.Reflections.ExperimentalDeferred</td>
-            <td>0</td>
-            <td>1</td>
-            <td>Improves the look of RT reflections and is surprisingly more performant than the default settings.</td>
-        </tr>
-        <tr>
-            <td>r.RayTracing.Reflections.ExperimentalDeferred.Glossy</td>
-            <td>1</td>
-            <td>0</td>
-            <td>Disabling this makes objects reflect more, though it looks inaccurate.</td>
-        </tr>
-        <tr>
-            <td>r.RayTracing.Reflections.ExperimentalDeferred.SmoothBias</td>
-            <td>1</td>
-            <td>0</td>
-            <td>Disabling this causes reflections to look broken.</td>
-        </tr>
-        <tr>
-            <td>r.RayTracing.Reflections.ExperimentalDeferred.SpatialResolve</td>
-            <td>1</td>
-            <td>0</td>
-            <td>Looks much better when standing still, but is very grainy in motion.</td>
-        </tr>
-        <tr>
-            <td>r.RayTracing.Reflections.ExperimentalDeferred.SpatialResolve.NumSamples</td>
-            <td>32</td>
-            <td>32+</td>
-            <td>Higher values make RT reflections more stable at the cost of some specular detail.</td>
-        </tr>
-        <tr>
-            <td>r.RayTracing.Reflections.ExperimentalDeferred.SpatialResolve.TemporalQuality</td>
-            <td>2</td>
-            <td>0-2</td>
-            <td>Improves stability when standing still, but causes instability in motion, with noticeable grain.</td>
-        </tr>
-        <tr>
-            <td>r.RayTracing.Reflections.ExperimentalDeferred.SpatialResolve.TemporalWeight</td>
-            <td>0.95</td>
-            <td>1</td>
-            <td>Higher values reduce shimmering, but sacrifice some detail in the reflections.</td>
-        </tr>
-        <tr>
-            <td>r.RayTracing.Reflections.ReflectionCaptures</td>
-            <td>0</td>
-            <td>1</td>
-            <td>Captures more objects in reflections but is very expensive performance-wise.</td>
-        </tr>
-        <tr>
-            <td>r.RayTracing.Shadows.EnableTwoSidedGeometry</td>
-            <td>1</td>
-            <td>0</td>
-            <td>Fixes shadows on the sands of the Isle of Alchemists.</td>
-        </tr>
-        <tr>
-            <td>r.RayTracing.AmbientOcclusion.EnableMaterials</td>
-            <td>0</td>
-            <td>1</td>
-            <td>Fixes blocky AO near foliage textures and reduces AO around characters, especially on their hair.</td>
-        </tr>
-    </tbody>
-</table>
-
-
+|Setting|Description|
+|--|--|
+|r.RayTracing.Shadows=True|RT shadows are much higher in terms of resolution, and it correctly simulates penumbra shadows, but foliage shadows unfortunately don’t animate; very expensive both in terms of fps and also VRAM.|
+|r.RayTracing.AmbientOcclusion=True|RTAO is more accurate than SSGI and/or AMD CACAO combined, but character models aren’t really built with this tech in mind. Sophia’s eyes look particularly dark which makes her look bizarre from afar, and creepy up close. Geppetto and the Lady Antonia are similarly darkened, especially on their hair; not as expensive as RT Shadows but still uses quite a bit more VRAM.|
+|~~r.RayTracing.SkyLight=True~~|Game crashes when toggled on.|
+|~~r.RayTracing.GlobalIllumination=False~~|Game runs like ASS when toggled on, plus I haven’t found any visual differences.|
+|~~r.RayTracing.Translucency=False~~|Breaks Niagara effects (e.g. flying butterflies around Stargazers).|
+|r.RayTracing.Reflections=True|Most expensive RT setting, but also the most noticeable especially in certain scenes.|
 
 To disable any effect, just set it back to False within GameUserSettings.ini. Check [PCGamingWiki](https://www.pcgamingwiki.com/wiki/Lies_of_P]PCGamingWiki)﻿﻿ for the config file location.
