@@ -8,7 +8,7 @@ This setting scales the view distance (LOD) of the game. Vanilla's **Best** sett
 
 This mod modifies the **High** and **Best** settings to provide seamless LOD transitions at the cost of performance.
 
-|Setting|----Low----|--Medium--|----High----|----Best----||
+|Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
 |`r.StaticMeshLODDistanceScale`|1.5|1.0 (1.2)|0.1 (1)|0.1 (1)|This setting fixes the Practice Area Wall pop-in and other areas like it.|
 |`r.HLOD.DistanceScale`|0.9|1.0 (0.9)|2.0 (0.9)|8.0 (1)|This setting fixes Geppetto’s Carriage pop-in. The new maximum setting improves geometry detail of objects from afar (e.g. bridges).|
@@ -18,7 +18,7 @@ This mod modifies the **High** and **Best** settings to provide seamless LOD tra
 ## Anti-aliasing Quality (New Optimal: Subjective)
 Originally, no matter what setting this is set to, TAA is used. Now this setting allows people to turn off AA completely or use FXAA instead.
 
-|Setting|----Low----|--Medium--|----High----|----Best----||
+|Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
 |`r.PostProcessAAQuality`|0 (3)|2 (3)|4|6 (5)|0: NoAA, 2: FXAA, 4: TAA, 6: TAA with Sharpening|
 |`r.Tonemapper.Sharpen`|0.9|1.0 (0.9)|2.0 (0.9)|8.0 (1)|**High** is for native operation, while **Best** is paired with FSR (0% Sharpness Slider) or DLSS (100% Sharpness Slider).|
@@ -26,7 +26,7 @@ Originally, no matter what setting this is set to, TAA is used. Now this setting
 ## Post-processing Quality (New Optimal: Subjective)
 The game natively provides a way to disable motion blur, but other effects like Bloom and DOF don't have their own toggles. This mod allows disabling of those effects as well.
 
-|Setting|----Low----|--Medium--|----High----|----Best----||
+|Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
 |`r.MotionBlurQuality`|0 (1)|2 (3)|3 (3)|4|Adjusts the quality of motion blur. Lower values disable or reduce the effect, while higher values enhance it.|
 |`r.DepthOfFieldQuality`|0 (1)|1 (1)|3 (2)|4 (2)||
@@ -35,7 +35,7 @@ The game natively provides a way to disable motion blur, but other effects like 
 ## Shadow Quality (New Optimal: Medium)
 I debated if I should’ve given the option to completely disable shadows, but I opted to not do that as the game’s foliage looks utterly horrendous and downright broken without it. Instead, the lowest setting still retains shadows, but at a much lower resolution.
 
-|Setting|----Low----|--Medium--|----High----|----Best----||
+|Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
 |`r.ShadowQuality`|2 (3)|3 (3)|4 (5)|5 (5)|Adjusts shadow filtering quality, ranging from low to high filtering. The lowest setting has no filtering at all.|
 |`r.Shadow.CSM.MaxCascades`|2 (1)|2 (1)|2 (2)|2 (2)|Ensures consistent shadows by setting all presets to 2, preventing blurry and pixelated shadows.|
@@ -49,7 +49,7 @@ I debated if I should’ve given the option to completely disable shadows, but I
 ## Effect Quality (New Optimal: Medium)
 Another setting where I debated on, specifically in the implementation of Screen Space Global Illumination (SSGI). In the end, I've relegated SSGI only to **Best** as it is the most expensive raster effect (sometimes more than RT surprisingly).
 
-|Setting|----Low----|--Medium--|----High----|----Best----||
+|Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
 |`r.SSGI.Quality`|0 (0)|0 (0)|0 (2)|4 (3)|Enabled on **Best** for screenshot purposes.|
 
@@ -58,14 +58,14 @@ Another setting where I debated on, specifically in the implementation of Screen
 ## Shading Quality (GTAO)
 Performance testing showed that there's no performance/visual difference in changing this setting, so I decided to implement GTAO on this setting's **Best** option.
 
-|Setting|----Low----|--Medium--|----High----|----Best----||
+|Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
 |`r.AmbientOcclusion.Method`|0 (-)|0 (-)|0 (-)|1 (-)|GTAO's presentation makes some areas of the game extremely dark. It is also quite expensive to the point where sometimes RTAO might be the better choice when optimizing for Fidelity.|
 
 ## Reflection Quality (New Optimal: High)
 SSR is the most interesting setting here since the developers likely optimized their materials around r.SSR.Quality = 2. Anything higher fails to correctly display reflections, not to mention is more expensive. Just turn on RT reflections instead.
 
-|Setting|----Low----|--Medium--|----High----|----Best----||
+|Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
 |`r.SSR.Quality`|1 (1)|1 (2)|2 (2)|2 (4)|**Low** and **Medium** SSR captures less objects within the reflections. Performance testing shows no FPS difference, however.|
 |`r.SSR.HalfResSceneColor`|1 (1)|0 (1)|1 (1)|0 (0)|**Low** and **High** cuts the SSR resolution in half which makes it blurrier and less stable (flickering) in motion. It theoretically increases FPS, but once again, performance testing doesn't show any difference, aside from it being uglier.|
@@ -74,7 +74,7 @@ SSR is the most interesting setting here since the developers likely optimized t
 ## Volumetric Fog Quality (New Optimal: High, Low turns off Volumetric Fog)
 In my opinion, the default volumetric fog looks very pixelated and unstable in motion, though admittedly, it is fast in terms of FPS. Scenes where you can notice the low volumetric resolution are few and far between, but when the scene is there, it is very jarring.
 
-|Setting|----Low----|--Medium--|----High----|----Best----||
+|Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
 |`r.VolumetricFog`|0 (1)|1 (1)|1 (1)|1 (1)|Disabling volumetric fog does increase performance, but drastically changes the game's presentation.|
 |`r.VolumetricFog.GridPixelSize`|16 (24)|8 (18)|6 (16)|4 (12)|Controls the pixelation of the fog. Lower values reduce pixelation but are more performance-heavy.|
@@ -83,7 +83,7 @@ In my opinion, the default volumetric fog looks very pixelated and unstable in m
 ## Ambient Occlusion Quality (New Optimal: Medium)
 AO is now unclamped from the post-process volume. Additionally, if Shading Quality is set to **Best**, this setting controls how GTAO looks and performs.
 
-|Setting|----Low----|--Medium--|----High----|----Best----||
+|Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
 |`r.AmbientOcclusionMaxQuality`|0 (30)|33 (40)|66 (50)|100 (60)||
 |`r.AmbientOcclusionLevels`|0 (-1)|1 (-1)|2 (-1)|3 (-1)||
@@ -98,10 +98,10 @@ AO is now unclamped from the post-process volume. Additionally, if Shading Quali
 ## Anisotropy Filter Quality (New Optimal: Best)
 Lastly, AF only goes up to 8x, likely due to this game also being ported to other platforms besides PC. But on PC, we want 16x, and this mod allows that.
 
-|Setting|----Low----|--Medium--|----High----|----Best----||
-|--|--|--|--|--|--|
-|`r.MaxAnisotropy`|0 (0)|4 (4)|8 (8)|16 (16)||
-|`r.VT.MaxAnisotropy`|0 (4)|4 (8)|8 (16)|16 (16)||
+|Setting|Low|Medium|High|Best|
+|--|--|--|--|--|
+|`r.MaxAnisotropy`|0 (0)|4 (4)|8 (8)|16 (16)|
+|`r.VT.MaxAnisotropy`|0 (4)|4 (8)|8 (16)|16 (16)|
 
 # WindowsEngine.ini Tweaks
 These settings have a higher priority than scalable settings. Most of these settings are set by constructor at runtime.
