@@ -46,7 +46,7 @@ I debated if I should’ve given the option to completely disable shadows, but I
 
 ## Texture Quality (Unchanged, depends on your GPU’s VRAM)
 
-## Effect Quality (New Optimal: Medium)
+## Effect Quality (New Optimal: High)
 Another setting where I debated on, specifically in the implementation of Screen Space Global Illumination (SSGI). In the end, I've relegated SSGI only to **Best** as it is the most expensive raster effect (sometimes more than RT surprisingly).
 
 |Setting|Low|Medium|High|Best||
@@ -55,14 +55,14 @@ Another setting where I debated on, specifically in the implementation of Screen
 
 ## Vegetation Quality (Unchanged)
 
-## Shading Quality (GTAO)
+## Shading Quality (GTAO, High)
 Performance testing showed that there's no performance/visual difference in changing this setting, so I decided to implement GTAO on this setting's **Best** option.
 
 |Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
 |`r.AmbientOcclusion.Method`|0 (-)|0 (-)|0 (-)|1 (-)|GTAO's presentation makes some areas of the game extremely dark. It is also quite expensive to the point where sometimes RTAO might be the better choice when optimizing for Fidelity.|
 
-## Reflection Quality (New Optimal: High)
+## Reflection Quality (New Optimal: Medium)
 SSR is the most interesting setting here since the developers likely optimized their materials around r.SSR.Quality = 2. Anything higher fails to correctly display reflections, not to mention is more expensive. Just turn on RT reflections instead.
 
 |Setting|Low|Medium|High|Best||
