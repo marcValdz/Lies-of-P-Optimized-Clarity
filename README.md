@@ -55,7 +55,7 @@ Another setting where I debated on, specifically in the implementation of Screen
 
 ## Vegetation Quality (Unchanged)
 
-## Shading Quality (GTAO, High)
+## Shading Quality (GTAO on Best)
 Performance testing showed that there's no performance/visual difference in changing the Shading Quality, so I decided to implement GTAO on the **Best** option.
 
 |Setting|Low|Medium|High|Best||
