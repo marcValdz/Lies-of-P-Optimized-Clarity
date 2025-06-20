@@ -4,15 +4,15 @@ This mod changes how the each Graphic Detail Settings work. I highly recommend t
 # WindowsScalability.ini Tweaks
 The following modifications affect the in-game graphics options.
 ## Visibility (New Optimal: High)
-This setting scales the view distance (LOD) of the game. Vanilla's **Best** setting trades good performance for very obvious pop-in (e.g. Practice Area Wall, Geppetto’s Carriage).
+This setting scales the view distance (LOD) of the game. Vanilla's **Best** setting trades good performance for very obvious pop-in (e.g. Practice Area Wall, Geppetto's Carriage).
 
 This mod modifies the **High** and **Best** settings to provide seamless LOD transitions at the cost of performance.
 
 |Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
 |`r.StaticMeshLODDistanceScale`|1.5|1.0 (1.2)|0.1 (1)|0.1 (1)|This setting fixes the Practice Area Wall pop-in and other areas like it.|
-|`r.HLOD.DistanceScale`|0.9|1.0 (0.9)|2.0 (0.9)|8.0 (1)|This setting fixes Geppetto’s Carriage pop-in. The new maximum setting improves geometry detail of objects from afar (e.g. bridges).|
-|`r.ViewDistanceScale`|1 (0.9)|1.0 (0.9)|2.0 (1.0)|4.0 (1)|After more testing, lowering this setting below 1.0 doesn’t provide much performance gain to justify the decrease in draw distance.|
+|`r.HLOD.DistanceScale`|0.9|1.0 (0.9)|2.0 (0.9)|8.0 (1)|This setting fixes Geppetto's Carriage pop-in. The new maximum setting improves geometry detail of objects from afar (e.g. bridges).|
+|`r.ViewDistanceScale`|1 (0.9)|1.0 (0.9)|2.0 (1.0)|4.0 (1)|After more testing, lowering this setting below 1.0 doesn't provide much performance gain to justify the decrease in draw distance.|
 |`r.SkeletalMeshLODBias`|1 (1)|0 (1)|-1 (0)|-1 (0)|Higher values cause NPC LOD pop-in (e.g., practice area puppets).|
 
 ## Anti-aliasing Quality (New Optimal: Subjective)
@@ -30,10 +30,10 @@ The game natively provides a way to disable motion blur, but other effects like 
 |--|--|--|--|--|--|
 |`r.MotionBlurQuality`|0 (1)|2 (3)|3 (3)|4|Adjusts the quality of motion blur. Lower values disable or reduce the effect, while higher values enhance it.|
 |`r.DepthOfFieldQuality`|0 (1)|1 (1)|3 (2)|4 (2)||
-|`r.BloomQuality`|0 (5)|2 (5)|4 (5)|5|Higher settings add a “flare” to light sources (e.g., candles in lanterns). These flares have a tendency to flicker, especially with DLSS enabled.|
+|`r.BloomQuality`|0 (5)|2 (5)|4 (5)|5|Higher settings add a “flare” to light sources (e.g., candles in lanterns). These flares have a tendency to flicker, especially with DLSS enabled (not true anymore with the DLSS4 Transformer Model).|
 
 ## Shadow Quality (New Optimal: Medium)
-I debated if I should’ve given the option to completely disable shadows, but I opted to not do that as the game’s foliage looks utterly horrendous and downright broken without it. Instead, the lowest setting still retains shadows, but at a much lower resolution.
+I debated if I should've given the option to completely disable shadows, but I opted to not do that as the game's foliage looks utterly horrendous and downright broken without it. Instead, the lowest setting still retains shadows, but at a much lower resolution.
 
 |Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
@@ -44,19 +44,19 @@ I debated if I should’ve given the option to completely disable shadows, but I
 |`r.Shadow.DistanceScale`|1 (0.3)|1 (0.7)|1 (0.85)|2 (1.0)|Removes obvious cutoff distances for shadows by increasing the distance scale.|
 |`r.ContactShadows`|0 (1)|0 (1)|0 (1)|1 (1)|Disables distracting, pixelated shadows in motion for Low, Medium, and High. Enabled on **Best** for screenshot purposes.|
 
-## Texture Quality (Unchanged, depends on your GPU’s VRAM)
+## Texture Quality (Unchanged, depends on your GPU's VRAM)
 
 ## Effect Quality (New Optimal: High)
-Another setting where I debated on, specifically in the implementation of Screen Space Global Illumination (SSGI). In the end, I've relegated SSGI only to **Best** as it is the most expensive raster effect (sometimes more than RT surprisingly).
+Another setting where I debated on, specifically in the implementation of Screen Space Global Illumination (SSGI). In the end, I've relegated SSGI only to **Cine** (can be accessed by executing `sg.EffectsQuality 4`) as it is the most expensive raster effect (sometimes more than RT surprisingly).
 
 |Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
-|`r.SSGI.Quality`|0 (0)|0 (0)|0 (2)|4 (3)|Enabled on **Best** for screenshot purposes.|
+|`r.SSGI.Quality`|0 (0)|0 (0)|0 (2)|0 (3)|Enabled on **Cine** `sg.EffectsQuality 4` for screenshot purposes.|
 
 ## Vegetation Quality (Unchanged)
 
 ## Shading Quality (GTAO, High)
-Performance testing showed that there's no performance/visual difference in changing this setting, so I decided to implement GTAO on this setting's **Best** option.
+Performance testing showed that there's no performance/visual difference in changing the Shading Quality, so I decided to implement GTAO on the **Best** option.
 
 |Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
@@ -77,8 +77,8 @@ In my opinion, the default volumetric fog looks very pixelated and unstable in m
 |Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
 |`r.VolumetricFog`|0 (1)|1 (1)|1 (1)|1 (1)|Disabling volumetric fog does increase performance, but drastically changes the game's presentation.|
-|`r.VolumetricFog.GridPixelSize`|16 (24)|8 (18)|6 (16)|4 (12)|Controls the pixelation of the fog. Lower values reduce pixelation but are more performance-heavy.|
-|`r.VolumetricFog.GridSizeZ`|16 (24)|32|64|128 (80)|Determines the "intensity" of the fog. A higher value leads to more intensity but can create more pixelation if not paired with lower GridPixelSize.|
+|`r.VolumetricFog.GridPixelSize`|16 (48)|8 (30)|6 (16)|4 (12)|Controls the pixelation of the fog. Lower values reduce pixelation but are more performance-heavy.|
+|`r.VolumetricFog.GridSizeZ`|16 (64)|32 (64)|64|128 (80)|Determines the "intensity" of the fog. A higher value leads to more intensity but can create more pixelation if not paired with lower GridPixelSize.|
 
 ## Ambient Occlusion Quality (New Optimal: Medium)
 AO is now unclamped from the post-process volume. Additionally, if Shading Quality is set to **Best**, this setting controls how GTAO looks and performs.
@@ -86,8 +86,7 @@ AO is now unclamped from the post-process volume. Additionally, if Shading Quali
 |Setting|Low|Medium|High|Best||
 |--|--|--|--|--|--|
 |`r.AmbientOcclusionMaxQuality`|0 (30)|33 (40)|66 (50)|100 (60)||
-|`r.AmbientOcclusionLevels`|0 (-1)|1 (-1)|2 (-1)|3 (-1)||
-|`r.AmbientOcclusionRadiusScale`|0 (0.4)|0.33 (0.6)|0.66 (0.8)|1|Higher values increase the "thickness" of the AO around objects.|
+|`r.AmbientOcclusionRadiusScale`|0 (0.4)|0.5 (0.6)|1 (0.8)|2|Higher values increase the "thickness" of the AO around objects.|
 |`r.GTAO.SpatialFilter`|0 (-)|0 (-)|0 (-)|0 (-)|GTAO by itself already makes the game darker. A value of 1 makes the game extremely dark to the point of unplayability.|
 |`r.GTAO.UseNormals`|(-)|1 (-)|1 (-)|1 (-)|Without this setting, GTAO looks more "polygonal." A value of 1 allows GTAO to recognize *normals*, which smooths out the AO.|
 |`r.GTAO.Downsample`|(-)|1 (-)|1 (-)|0 (-)|Halves the resolution of GTAO allowing it to run much better, at the cost of instability (jitter) and blockyness (pixelation).|
@@ -116,7 +115,6 @@ These settings have a higher priority than scalable settings. Most of these sett
 |`r.TemporalAA.HistoryScreenPercentage`|200 (100)|Increases motion clarity at native or higher resolutions, but flickers light sources with bloom. Quite performance-heavy.|
 |`r.TemporalAACurrentFrameWeight`|0 (0.04)|Higher values increase clarity at the cost of more noticeable jitter and specular aliasing. Overwritten by r.TemporalAA.Algorithm=1.|
 |`r.TemporalAASamples`|4 (8)|Lower values reduce jitter but also lower geometry antialiasing quality. Increase if visual errors occur when using r.TemporalAA.Algorithm=1.|
-|`r.NGX.DLSS.Preset`|3 (-)|Only Presets 3 and 6 don’t have ghosting in Lies Of P.|
 |`r.NGX.LogLevel`|0 (1)|Disables DLSS logging.|
 
 ## Other Settings
@@ -148,7 +146,7 @@ Currently, the mod allows the usage of raytracing, but ONLY FOR STEAM. For some 
 
 |Setting|Description|
 |--|--|
-|`r.RayTracing.Shadows=True`|RT shadows are much higher in terms of resolution, and it correctly simulates penumbra shadows, but foliage shadows unfortunately don’t animate; very expensive both in terms of FPS and VRAM. Character models weren’t really built with this tech in mind. For example: Sophia’s eyes look very dark which makes her look bizarre from afar, and creepy up close. Geppetto and the Lady Antonia are similarly darkened, especially on their hair.|
+|`r.RayTracing.Shadows=True`|RT shadows are much higher in terms of resolution, and it correctly simulates penumbra shadows, but foliage shadows unfortunately don't animate; very expensive both in terms of FPS and VRAM. Character models weren't really built with this tech in mind. For example: Sophia's eyes look very dark which makes her look bizarre from afar, and creepy up close. Geppetto and the Lady Antonia are similarly darkened, especially on their hair.|
 |`r.RayTracing.AmbientOcclusion=True`|RTAO is more accurate than SSGI, GTAO and/or AMD CACAO combined. It isn't as expensive as RT Shadows but still uses quite a bit more VRAM.|
 |~~`r.RayTracing.SkyLight=True`~~|Game crashes when toggled on.|
 |~~`r.RayTracing.GlobalIllumination=False`~~|Game runs like ASS when toggled on, plus there's no visual differences.|
